@@ -99,7 +99,7 @@ def normalize(image, MIN_BOUND, MAX_BOUND):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Preprocessing script for dicom images")
-    parser.add_argument("inputFolder", type=str, help="path to the root folder")
+    parser.add_argument("--inputFolder", type=str, help="path to the root folder", default="./stag1")
     parser.add_argument("--min", dest = "MIN_BOUND", type=int, default = 0, help="the minimum bound for the filter")
     parser.add_argument("--max", dest = "MAX_BOUND", type=int, default = 35, help="the maximum bound for the filter")
     parser.add_argument("--N", dest = "nSlices", type=int, default=10, help = "the number of slices")

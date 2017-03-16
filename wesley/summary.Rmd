@@ -1,0 +1,25 @@
+# Lung Image Preprocessing
+
+## Introduction
+
+This is my first adventure into Deep learning and Image processing at the same
+time. Wish me luck
+
+# Nodule detection
+
+Lets use the LUng Nodule Analysis (LUNA) 2016’s dataset lung nodule images to train a UNET to detect for nodules and apply it to the Grand Challenge.
+
+Idea is taken from [this](https://github.com/booz-allen-hamilton/DSB3Tutorial/blob/master/Tutorial.ipynb) python notebook.
+
+The image files are stored in the .dmc (dicom format)
+
+stage1
+├── 0015ceb851d7251b8f399e39779d1e7d (patient id)
+│   ├── 00ac2629fe659e68f4879da4812af659.dcm
+│   ├── 0142676d603719d164fe77097c086741.dcm
+│   ├── 018a0959730e9889f55670e7687af559.dcm
+│   ├── 01c1ce911922eb684a0b595d4e7f7a42.dcm
+│   ├── 0305df4fa1defc17ff0382a9edddb99b.dcm
+│   ├── 04f4264b1ee25de0e893f72c165bf0c9.dcm
+│   ├── 07a038952758a77e0e0a4d948e96016f.dcm
+│   ├── 08e9a8fe300e1d29f56fd43e33d79c01.dcm

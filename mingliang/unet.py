@@ -1,4 +1,7 @@
+#!/usr/bin/env python
+
 import numpy as np
+
 from keras.models import Model
 from keras.layers import Input, merge, Convolution2D, MaxPooling2D, UpSampling2D
 from keras.optimizers import Adam
@@ -12,7 +15,6 @@ img_rows = 512
 img_cols = 512
 
 smooth = 1.
-
 
 def dice_coef(y_true, y_pred):
     y_true_f = K.flatten(y_true)
@@ -85,7 +87,7 @@ def train_and_predict(use_existing):
 
     imgs_test = np.load(working_path+"testImages.npy").astype(np.float32)
     imgs_mask_test_true = np.load(working_path+"testMasks.npy").astype(np.float32)
-    
+
     mean = np.mean(imgs_train)  # mean for data centering
     std = np.std(imgs_train)  # std for data normalization
 
@@ -99,18 +101,18 @@ def train_and_predict(use_existing):
     # Saving weights to unet.hdf5 at checkpoints
     model_checkpoint = ModelCheckpoint('unet.hdf5', monitor='loss', save_best_only=True)
     #
-    # Should we load existing weights? 
+    # Should we load existing weights?
     # Set argument for call to train_and_predict to true at end of script
     if use_existing:
         model.load_weights('./unet.hdf5')
-        
-    # 
+
+    #
     # The final results for this tutorial were produced using a multi-GPU
     # machine using TitanX's.
-    # For a home GPU computation benchmark, on my home set up with a GTX970 
-    # I was able to run 20 epochs with a training set size of 320 and 
-    # batch size of 2 in about an hour. I started getting reseasonable masks 
-    # after about 3 hours of training. 
+    # For a home GPU computation benchmark, on my home set up with a GTX970
+    # I was able to run 20 epochs with a training set size of 320 and
+    # batch size of 2 in about an hour. I started getting reseasonable masks
+    # after about 3 hours of training.
     #
     print('-'*30)
     print('Fitting model...')
